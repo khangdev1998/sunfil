@@ -9,7 +9,6 @@ import { products } from "../../../app/api/data";
 import ProductCard from "../ProductCard";
 import type { PromoSectionProps } from "../../../app/api/types";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-
 import "swiper/css";
 import "swiper/css/pagination";
 
@@ -66,8 +65,7 @@ const PromoSection = memo(({ className = "" }: PromoSectionProps) => {
         <button
           onClick={() => swiperRef.current?.slidePrev()}
           disabled={isBeginning}
-          className="absolute left-[3rem] top-1/2 -translate-y-1/2 -translate-x-1/2 z-10 bg-[#CDE4FE] p-2 rounded-full shadow-lg text-[#013065]
-                     disabled:opacity-50 disabled:cursor-not-allowed"
+          className="absolute left-[3rem] top-1/2 -translate-y-1/2 -translate-x-1/2 z-10 bg-[#CDE4FE] p-2 rounded-full shadow-lg text-[#013065] disabled:opacity-50 disabled:cursor-not-allowed"
         >
           <ChevronLeft size={24} />
         </button>
@@ -76,8 +74,7 @@ const PromoSection = memo(({ className = "" }: PromoSectionProps) => {
         <button
           onClick={() => swiperRef.current?.slideNext()}
           disabled={isEnd}
-          className="absolute right-[3rem] top-1/2 -translate-y-1/2 translate-x-1/2 z-10 bg-[#CDE4FE] p-2 rounded-full shadow-lg text-[#013065]
-                     disabled:opacity-50 disabled:cursor-not-allowed"
+          className="absolute right-[3rem] top-1/2 -translate-y-1/2 translate-x-1/2 z-10 bg-[#CDE4FE] p-2 rounded-full shadow-lg text-[#013065] disabled:opacity-50 disabled:cursor-not-allowed"
         >
           <ChevronRight size={24} />
         </button>

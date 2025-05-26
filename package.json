@@ -1,7 +1,9 @@
 {
-  "name": "my-app",
+  "name": "sunfil",
   "version": "0.1.0",
   "private": true,
+  "description": "Next.js application developed by Khang Nguyễn",
+  "author": "Khang <khangdev171998@gmail.com>",
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",

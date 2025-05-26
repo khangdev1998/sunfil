@@ -2,9 +2,10 @@
 import { Menu, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
-import MenuProducts from "./MenuProducts";
+import { MenuProducts } from "./MenuProducts";
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import { serviceFeatures, navLinks } from "./data";
 
 export function SubHeader() {
   const [isHovered, setIsHovered] = useState(false);
@@ -22,7 +23,7 @@ export function SubHeader() {
           >
             <Button
               variant="ghost"
-              className="bg-[#0155C6] hover:bg-[#5183c4]! hover:text-gray-100 transition-all h-full text-white px-4 py-[12.8px] rounded-md flex items-center space-x-2"
+              className="bg-[#0155C6] hover:bg-[#5183c4] hover:text-gray-100 transition-all h-full text-white px-4 py-[12.8px] rounded-md flex items-center space-x-2"
             >
               <Menu className="size-5" />
               <span className="text-base font-bold">Danh Mục Sản Phẩm</span>
@@ -47,73 +48,27 @@ export function SubHeader() {
 
           {/* Main navigation */}
           <nav className="hidden md:flex items-center space-x-5">
-            <a
-              href="#"
-              className="text-base font-medium hover:text-blue-500 transition-colors"
-            >
-              Về Chúng Tôi
-            </a>
-            <a
-              href="#"
-              className="text-base font-medium hover:text-blue-500 transition-colors"
-            >
-              Bài Viết
-            </a>
-            <a
-              href="#"
-              className="text-base font-medium hover:text-blue-500 transition-colors"
-            >
-              Catalog
-            </a>
-            <a
-              href="#"
-              className="text-base font-medium hover:text-blue-500 transition-colors"
-            >
-              Liên Hệ
-            </a>
+            {navLinks.map((link) => (
+              <a
+                key={link.text}
+                href={link.href}
+                className="text-base font-medium hover:text-blue-500 transition-colors"
+              >
+                {link.text}
+              </a>
+            ))}
           </nav>
         </div>
 
         {/* Right side - Service features */}
-        <div className="lg:flex items-center space-x-5">
-          {/* 24/7 Support */}
-          <div className="flex items-center space-x-2">
-            <Image src="/images/clock.svg" alt="clock" width={20} height={20} />
-            <span className="text-base font-semibold">Hỗ trợ 24/7</span>
-          </div>
-
-          {/* Free Shipping */}
-          <div className="flex items-center space-x-2">
-            <Image
-              src="/images/hand-money.svg"
-              alt="hand-money"
-              width={24}
-              height={24}
-            />
-            <span className="text-base font-semibold">Miễn Phí Vận Chuyển</span>
-          </div>
-
-          {/* Fast Delivery */}
-          <div className="flex items-center space-x-2">
-            <Image src="/images/ship.svg" alt=" ship" width={24} height={24} />
-            <span className="text-base font-semibold">Giao Hàng Nhanh 2h</span>
-          </div>
-
-          {/* 30 Days Return */}
-          <div className="flex items-center space-x-2">
-            <Image src="/images/ship.svg" alt=" ship" width={20} height={20} />
-            <span className="text-base font-semibold">30 Ngày Đổi Trả</span>
-          </div>
+        <div className="flex items-center space-x-5">
+          {serviceFeatures.map(({ icon, text, width, height }) => (
+            <div className="flex items-center space-x-2" key={text}>
+              <Image src={icon} alt={text} width={width} height={height} />
+              <span className="text-base font-semibold">{text}</span>
+            </div>
+          ))}
         </div>
-
-        {/* Mobile menu button */}
-        <Button
-          variant="ghost"
-          size="icon"
-          className="md:hidden text-white hover:bg-blue-700"
-        >
-          <Menu className="size-5" />
-        </Button>
       </div>
 
       {/* Animated Overlay */}

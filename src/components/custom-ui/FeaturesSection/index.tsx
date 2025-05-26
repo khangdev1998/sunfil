@@ -1,5 +1,5 @@
-import FeatureCard from "./FeatureCard";
 import { cn } from "@/lib/utils";
+import FeatureCard from "./FeatureCard";
 
 const FeaturesSection = ({ className }: { className?: string }) => {
   const data = [

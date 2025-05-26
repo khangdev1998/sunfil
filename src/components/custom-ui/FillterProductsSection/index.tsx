@@ -5,7 +5,7 @@ import { FilterSidebar } from "./FilterSidebar";
 import { products } from "../../../app/api/data";
 import FilterHeader from "./FilterHeader";
 import { useInfiniteScroll } from "../../../hooks/useInfiniteScroll";
-import LoadingSpinner from "../../LoadingSpinner";
+import LoadingSpinner from "../LoadingSpinner";
 
 const ITEMS_PER_PAGE = 8;
 

@@ -1,62 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ChevronRight, Filter, Wind, Fuel, Car, Wrench } from "lucide-react";
+import { ChevronRight, Filter } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { products } from "@/app/api/data";
+import { categories } from "./data";
 import ProductCard from "@/components/custom-ui/ProductCard";
 
-export default function MenuProducts() {
-  const categories = [
-    {
-      name: "Bộ Lọc Dầu",
-      icon: Filter,
-      color: "bg-blue-100 text-blue-600",
-      image: "/images/category-1.png",
-    },
-    {
-      name: "Bộ Lọc Không Khí",
-      icon: Wind,
-      color: "bg-gray-100 text-gray-600",
-      image: "/images/category-2.png",
-    },
-    {
-      name: "Bộ Lọc Nhiên Liệu",
-      icon: Fuel,
-      color: "bg-gray-100 text-gray-600",
-      image: "/images/category-3.png",
-    },
-    {
-      name: "Bộ Lọc Trong Cabin",
-      icon: Car,
-      color: "bg-gray-100 text-gray-600",
-      image: "/images/category-4.png",
-    },
-    {
-      name: "Bộ Lọc Không Khí",
-      icon: Wrench,
-      color: "bg-orange-100 text-orange-600",
-      image: "/images/category-5.png",
-    },
-    {
-      name: "Bộ Lọc Trong Cabin",
-      icon: Filter,
-      color: "bg-gray-100 text-gray-600",
-      image: "/images/category-6.png",
-    },
-    {
-      name: "Bộ Lọc Nhiên Liệu",
-      icon: Filter,
-      color: "bg-gray-100 text-gray-600",
-      image: "/images/category-7.png",
-    },
-    {
-      name: "Bộ Lọc Không Khí",
-      icon: Filter,
-      color: "bg-gray-100 text-gray-600",
-      image: "/images/category-8.png",
-    },
-  ];
-
+export function MenuProducts() {
   const topProducts = Array(6)
     .fill(null)
     .map((_, i) => ({
