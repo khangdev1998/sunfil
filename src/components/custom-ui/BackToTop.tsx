@@ -1,7 +1,6 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import clsx from "clsx";
 import { useScrollPosition } from "@/hooks/useScrollPosition";
 import Image from "next/image";
 
@@ -22,7 +21,7 @@ export function BackToTopButton() {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 20 }}
           transition={{ duration: 0.3 }}
-          className={clsx("fixed bottom-20 right-11 z-50")}
+          className="fixed bottom-20 right-11 z-50 hover:opacity-50! transition-opacity! duration-150!"
           aria-label="Back to top"
         >
           <Image

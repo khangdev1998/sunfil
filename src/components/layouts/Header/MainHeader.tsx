@@ -5,9 +5,9 @@ import Link from "next/link";
 import { useState } from "react";
 import { useTypewriter } from "react-simple-typewriter";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { products } from "@/app/api/data";
 import { CartSheet } from "./CartSheet";
+import { cn } from "@/lib/utils";
 
 export function MainHeader() {
   const suggestions = [
@@ -19,15 +19,16 @@ export function MainHeader() {
   const [text] = useTypewriter({
     words: suggestions,
     loop: true,
-    typeSpeed: 120,
-    deleteSpeed: 50,
+    typeSpeed: 50,
+    deleteSpeed: 40,
     delaySpeed: 1500,
   });
 
   const [search, setSearch] = useState("");
   const [focused, setFocused] = useState(false);
 
-  const placeholderText = !focused && !search ? `${text}|` : "";
+  const placeholderText =
+    !focused && !search ? `${text}|` : "Tìm kiếm sản phẩm";
 
   return (
     <header>
@@ -39,37 +40,36 @@ export function MainHeader() {
           </Link>
 
           {/* Search Bar */}
-          <div className="flex-1 max-w-[715px]">
-            <div className="relative flex items-center">
-              <div className="relative flex-1">
-                <Input
-                  type="text"
-                  value={search}
-                  onChange={(e) => setSearch(e.target.value)}
-                  onFocus={() => setFocused(true)}
-                  onBlur={() => setFocused(false)}
-                  placeholder={placeholderText || "Tìm kiếm sản phẩm"}
-                  className="w-full h-12 pl-4 pr-12 rounded-l-full border-2 border-[#0373F3] bg-transparent! text-gray-600 placeholder:text-[#919EAB]
-                  focus:border-blue-400 focus:ring-blue-100 focus:ring-[3px]     focus:outline-none"
-                />
-                <button className="absolute right-3 top-1/2 transform -translate-y-1/2 p-1">
-                  <Image
-                    src="/images/camera.svg"
-                    alt="Camera"
-                    width={22}
-                    height={22}
-                  />
-                </button>
-              </div>
-              <Button className="w-[76px] h-full flex items-center justify-center rounded-r-full bg-[#0373F3] hover:bg-blue-700 border-2 border-blue-600">
-                <Image
-                  src="/images/glass.svg"
-                  alt="Search"
-                  width={25}
-                  height={25}
-                />
-              </Button>
-            </div>
+          <div
+            className={cn(
+              "flex flex-1 max-w-[738px] h-16 items-center gap-6 border-2 border-blue-500 rounded-full py-2 pl-5 pr-2 transition-all duration-300",
+              focused &&
+                "shadow-[0_15px_30px_-5px_rgba(147,197,253,0.5),0_10px_20px_-5px_rgba(147,197,253,0.3)]"
+            )}
+          >
+            <input
+              className="size-full outline-none placeholder:font-normal text-base"
+              type="text"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              placeholder={placeholderText}
+              onFocus={() => setFocused(true)}
+              onBlur={() => setFocused(false)}
+            />
+            <Image
+              src="/images/camera.svg"
+              alt="Camera"
+              width={25}
+              height={23}
+            />
+            <Button className="bg-blue-500 h-full hover:bg-blue-600 rounded-full p-3 px-[25px]">
+              <Image
+                src="/images/glass.svg"
+                alt="Search"
+                width={25}
+                height={25}
+              />
+            </Button>
           </div>
 
           {/* Right Navigation */}
